@@ -5,7 +5,7 @@ The intention is for these bots to be hosted in a heroku instance
 
 ## Setup
 1. Clone this repository locally
-2. Use heroku to set the GROUPME_BOT_NAME and GROUPME_BOT_ID. You can get these from (here)[https://dev.groupme.com/bots].
+2. Use heroku to set the GROUPME_BOT_NAME and GROUPME_BOT_ID. You can get these from [here](https://dev.groupme.com/bots).
 3. Clone any plugins you want into the 'plugins/' directory
 4. Push the project to heroku
 
