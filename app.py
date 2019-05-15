@@ -19,7 +19,9 @@ app = Flask(__name__)
 def webhook():
 	data = request.get_json()
 	if data['name'] != os.getenv('BOT_ID'):
+		print ("Loop through active plugins")
 		for plugin in manager.getAllPlugins():
+			print ("Plugin Activated")
 			response = plugin.plugin_object.process(data)
 			if response:
 				send_message(response)
