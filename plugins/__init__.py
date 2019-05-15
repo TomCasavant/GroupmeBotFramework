@@ -1,1 +1,1 @@
-__all__ = ["example"]
+__all__ = ["ExamplePlugin"]
