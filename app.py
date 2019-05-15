@@ -52,7 +52,7 @@ class GroupmeClient:
         json = urlopen(request).read().decode()
 
     def upload_image(self, image, content_type):
-	"""Uploads image to Groupme's image service and returns url"""
+        """Uploads image to Groupme's image service and returns url"""
         url = "https://image.groupme.com/pictures"
         headers = {
             "Content-Type": content_type,
