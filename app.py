@@ -6,7 +6,9 @@ from urllib.request import Request, urlopen
 
 from flask import Flask, request
 
-from plugins import *
+from plugins import ExamplePlugin
+
+active_plugins = [ExamplePlugin()]
 
 app = Flask(__name__)
 
@@ -14,7 +16,10 @@ app = Flask(__name__)
 def webhook():
 	data = request.get_json()
 	if data['name'] != os.getenv('BOT_ID'):
-		send_message(ExamplePlugin().process(data))
+		for (plugin in active_plugins):
+			response = plugin.process(data)
+			if response:
+				send_message(response)
 
 	return "ok", 200
 
