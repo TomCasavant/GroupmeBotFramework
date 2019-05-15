@@ -1,6 +1,6 @@
 [Core]
 Name = Example Plugin
-Module = exampleplugin
+Module = ExamplePlugin
 
 [Documentation]
 Author = Tom Casavant
