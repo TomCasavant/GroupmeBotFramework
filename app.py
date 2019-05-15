@@ -18,7 +18,7 @@ app = Flask(__name__)
 @app.route('/', methods=['POST'])
 def webhook():
 	data = request.get_json()
-	if data['name'] != os.getenv('BOT_ID'):
+	if data['name'] != os.getenv('GROUPME_BOT_NAME'):
 		print ("Loop through active plugins")
 		for plugin in manager.getAllPlugins():
 			print ("Plugin Activated")
