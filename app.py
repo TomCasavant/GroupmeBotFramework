@@ -27,7 +27,7 @@ def webhook():
 	return "ok", 200
 
 class GroupmeClient():
-	def send_message(msg):
+	def send_message(self, msg):
 		url = 'https://api.groupme.com/v3/bots/post'
 
 		data = {
