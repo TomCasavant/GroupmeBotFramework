@@ -45,19 +45,18 @@ class GroupmeClient:
         data = {
             "bot_id": os.getenv("GROUPME_BOT_ID"),
             "text": msg,
-            "attachments": [{"type": "image", "url": image_url}],
+            "attachments": [{"type": "image", "url": image_url}]
         }
 
         request = Request(url, urlencode(data).encode())
         json = urlopen(request).read().decode()
 
-    def upload_image(self, image, content_type):
-	"""Uploads image to Groupme's image service and returns url"""
-        url = "https://image.groupme.com/pictures"
-        headers = {
-            "Content-Type": content_type,
-            "X-Access-Token": os.getenv("GROUPME_ACCESS_TOKEN"),
-        }
-        request = Request(url, urlencode(image), headers)
-        json = urlopen(request).read().decode()
-        return json["payload"]["picture_url"]
+    def uploadImage(self, image, content_type):
+	url = "https://image.groupme.com/pictures"
+	headers = {
+	    'Content-Type': content_type,
+	    'X-Access-Token': os.getenv("GROUPME_ACCESS_TOKEN")
+	    }
+	request = Request(url, urlencode(image), headers)
+	json = urlopen(request).read().decode()
+	return json['payload']['picture_url']
