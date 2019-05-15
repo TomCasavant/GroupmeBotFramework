@@ -39,17 +39,18 @@ class GroupmeClient:
         request = Request(url, urlencode(data).encode())
         json = urlopen(request).read().decode()
 
-    def send_message_with_image(self, image_url, msg=""):
+    def send_message_with_image(self, image_url, msg):
         """Sends a message with a an image_url. NOTE: You must upload image to Groupme first"""
         url = "https://api.groupme.com/v3/bots/post"
         data = {
             "bot_id": os.getenv("GROUPME_BOT_ID"),
             "text": msg,
-            "attachments": [{"type": "image", "url": image_url}],
+            "attachments": [{"type": "image", "url": image_url}]
         }
 
         request = Request(url, urlencode(data).encode())
         json = urlopen(request).read().decode()
+        print(json)
 
     def upload_image(self, image, content_type):
         """Uploads image to Groupme's image service and returns url"""
