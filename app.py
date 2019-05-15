@@ -6,13 +6,15 @@ from urllib.request import Request, urlopen
 
 from flask import Flask, request
 
+from plugins import *
+
 app = Flask(__name__)
 
 @app.route('/', methods=['POST'])
 def webhook():
 	data = request.get_json()
 	if data['name'] != os.getenv('BOT_ID'):
-		#TODO Process Plugins
+		send_message(ExamplePlugin().process(data))
 
 	return "ok", 200
 
