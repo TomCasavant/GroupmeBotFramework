@@ -16,7 +16,7 @@ app = Flask(__name__)
 def webhook():
 	data = request.get_json()
 	if data['name'] != os.getenv('BOT_ID'):
-		for (plugin in active_plugins):
+		for plugin in active_plugins:
 			response = plugin.process(data)
 			if response:
 				send_message(response)
