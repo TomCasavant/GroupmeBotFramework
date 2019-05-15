@@ -6,9 +6,12 @@ from urllib.request import Request, urlopen
 
 from flask import Flask, request
 
-from plugins.ExamplePlugin import ExamplePlugin
+#import all the plugins from the plugin directory
+from yapsy.PluginManager import PluginManager
+manager = PluginManager()
+manager.setPluginPlaces(["plugins"])
+manager.collectPlugins()
 
-active_plugins = [ExamplePlugin()]
 
 app = Flask(__name__)
 
@@ -16,8 +19,8 @@ app = Flask(__name__)
 def webhook():
 	data = request.get_json()
 	if data['name'] != os.getenv('BOT_ID'):
-		for plugin in active_plugins:
-			response = plugin.process(data)
+		for plugin in manager.getAllPlugins():
+			response = plugin.plugin_object.process(data)
 			if response:
 				send_message(response)
 
