@@ -6,7 +6,7 @@ from urllib.request import Request, urlopen
 
 from flask import Flask, request
 
-import plugins.ExamplePlugin
+from plugins.ExamplePlugin import ExamplePlugin
 
 active_plugins = [ExamplePlugin()]
 
