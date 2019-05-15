@@ -1,0 +1,9 @@
+[Core]
+Name = Example Plugin
+Module = exampleplugin
+
+[Documentation]
+Author = Tom Casavant
+Version = 0.1
+Website = http://www.tomcasavant.com
+Description = Replies to a user when message is received
