@@ -12,7 +12,6 @@ manager = PluginManager()
 manager.setPluginPlaces(["plugins"])
 manager.collectPlugins()
 
-client = GroupmeClient()
 
 app = Flask(__name__)
 
@@ -21,6 +20,7 @@ def webhook():
 	data = request.get_json()
 	if data['name'] != os.getenv('GROUPME_BOT_NAME'):
 		#Loop through active plugins
+		client = GroupmeClient()
 		for plugin in manager.getAllPlugins():
 			response = plugin.plugin_object.process(data, client)
 
