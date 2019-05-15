@@ -19,7 +19,8 @@ The intention is for these bots to be hosted in a heroku instance
 
 #### Plugin Info file
 - This file will be saved as PluginName.yapsy-plugin where 'PluginName' is the name of your plugin. It has this format:
-'''
+
+~~~~
 [Core]
 Name = The name of your plugin
 Module = The name of the class that implements IPlugin
@@ -29,8 +30,8 @@ Author = Your name
 Version = Version Number
 Website = Optional info about the author
 Description = A brief description of your plugin
-'''
+~~~~
 
 
-#TODO
+# TODO
 - Add ability to use other Groupme API methods
