@@ -58,6 +58,6 @@ class GroupmeClient:
             "Content-Type": content_type,
             "X-Access-Token": os.getenv("GROUPME_ACCESS_TOKEN"),
         }
-        request = Request(url, urlencode(image), headers)
+        request = Request(url, image, headers)
         json = urlopen(request).read().decode()
         return json["payload"]["picture_url"]
