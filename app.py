@@ -12,6 +12,7 @@ manager = PluginManager()
 manager.setPluginPlaces(["plugins"])
 manager.collectPlugins()
 
+client = GroupmeClient()
 
 app = Flask(__name__)
 
@@ -19,24 +20,22 @@ app = Flask(__name__)
 def webhook():
 	data = request.get_json()
 	if data['name'] != os.getenv('GROUPME_BOT_NAME'):
-		print ("Loop through active plugins")
+		#Loop through active plugins
 		for plugin in manager.getAllPlugins():
-			print ("Plugin Activated")
-			response = plugin.plugin_object.process(data)
-			if response:
-				send_message(response)
+			response = plugin.plugin_object.process(data, client)
 
 	return "ok", 200
 
+class GroupmeClient():
+	def send_message(msg):
+		url = 'https://api.groupme.com/v3/bots/post'
 
-def send_message(msg):
-	url = 'https://api.groupme.com/v3/bots/post'
+		data = {
+			'bot_id' : os.getenv('GROUPME_BOT_ID'),
+			'text' : msg,
+			}
 
-	data = {
-		'bot_id' : os.getenv('GROUPME_BOT_ID'),
-		'text' : msg,
-		}
+		request = Request(url, urlencode(data).encode())
+		json = urlopen(request).read().decode()
 
-	request = Request(url, urlencode(data).encode())
-	json = urlopen(request).read().decode()
 
