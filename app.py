@@ -60,4 +60,5 @@ class GroupmeClient:
         }
         request = Request(url, image, headers)
         response = json.load(urlopen(request))
+        print(response)
         return response["payload"]["picture_url"]
