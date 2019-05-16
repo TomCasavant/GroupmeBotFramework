@@ -9,6 +9,9 @@ The intention is for these bots to be hosted in a heroku instance
 3. Clone any plugins you want into the 'plugins/' directory
 4. Push the project to heroku
 
+## Existing Plugins
+- [QuoteGroupmePlugin](https://github.com/TomCasavant/QuoteGroupmePlugin) - Generates a random quote when user types "!quote"
+
 ## Building your own plugins
 - Every plugin contains at least 2 files. The main plugin file and an info file. An example plugin is available in this repository under plugins/ExamplePlugin
 
