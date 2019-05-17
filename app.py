@@ -61,14 +61,3 @@ class GroupmeClient:
         response = json.load(urlopen(request))
         print(response)
         return response["payload"]["picture_url"]
-
-    def send_location(self, lng, lat, name, msg):
-        """Sends a location into the groupme"""
-        url = "https://api.groupme.com/v3/bots/post"
-        data = {
-            "bot_id": os.getenv("GROUPME_BOT_ID"),
-            "text": msg,
-            "attachments": [{"type": "location", "lng": lng, "lat": lat, "name": name}],
-        }
-        request = Request(url, urlencode(data).encode())
-        json = urlopen(request).read().decode()
