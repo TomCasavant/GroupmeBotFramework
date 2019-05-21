@@ -11,6 +11,7 @@ The intention is for these bots to be hosted in a heroku instance
 
 ## Existing Plugins
 - [QuoteGroupmePlugin](https://github.com/TomCasavant/QuoteGroupmePlugin) - Generates a random quote when user types "!quote"
+- [NASAPlugin](https://github.com/TomCasavant/NASAPlugin) - Gets the image of the day from NASA
 
 ## Building your own plugins
 - Every plugin contains at least 2 files. The main plugin file and an info file. An example plugin is available in this repository under plugins/ExamplePlugin
